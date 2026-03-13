@@ -1,30 +1,80 @@
 "use client";
 
-import Folder from "./ui/Folder";
+import { motion } from "framer-motion";
 
 export const Mantra = () => {
-    const items = [
-        <div key="build" className="flex items-center justify-center w-full h-full text-sm md:text-xl font-bold text-black border-none rounded-lg">Build</div>,
-        <div key="manifest" className="flex items-center justify-center w-full h-full text-sm md:text-lg font-bold text-black border-none rounded-lg">Manifest</div>,
-        <div key="break" className="flex items-center justify-center w-full h-full text-sm md:text-xl font-bold text-black border-none rounded-lg">Break</div>,
+    const words = ["Build.", "Break.", "Manifest."];
 
-    ];
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2,
+            }
+        }
+    };
+
+    const letterVariants = {
+        hidden: { y: "100%", opacity: 0 },
+        visible: { 
+            y: 0, 
+            opacity: 1,
+            transition: { duration: 0.8, ease: [0.25, 1, 0.5, 1] as const }
+        },
+        hover: {
+            y: -10,
+            color: "var(--accent)",
+            transition: { duration: 0.2, type: "spring" as const, stiffness: 300 }
+        }
+    };
 
     return (
-        <section className="py-24 flex flex-col items-center justify-center bg-background overflow-hidden">
-            <h2 className="text-4xl md:text-5xl font-bold mb-20 text-center tracking-tight">
-                Our Mantra
-            </h2>
-            <div className="relative w-full flex justify-center items-end h-[400px] pb-20 md:h-[500px]">
-                <div className="transform scale-[0.6] md:scale-100 origin-bottom transition-transform duration-300">
-                    <Folder
-                        size={3.5}
-                        color="#00E5FF"
-                        className="custom-folder"
-                        items={items}
-                    />
+        <section className="py-24 md:py-48 relative overflow-hidden bg-foreground text-background">
+            <div className="container mx-auto px-6 max-w-6xl text-center flex flex-col items-center justify-center">
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+                    className="text-accent tracking-widest uppercase text-xs font-bold mb-12 lg:mb-20 flex items-center justify-center gap-4"
+                >
+                    <span className="w-8 h-px bg-accent"></span>
+                    The Mantra
+                    <span className="w-8 h-px bg-accent"></span>
+                </motion.p>
+
+                <div className="flex flex-col gap-6 md:gap-8">
+                    {words.map((word, i) => (
+                        <motion.div
+                            key={word}
+                            variants={containerVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            whileHover="hover"
+                            viewport={{ once: true, margin: "-150px" }}
+                            className="overflow-hidden flex justify-center cursor-default"
+                            style={{ paddingBottom: '0.2em' }} // prevent cut-off on lower letters
+                        >
+                            {word.split("").map((char, index) => (
+                                <motion.span
+                                    key={index}
+                                    variants={letterVariants}
+                                    className="text-6xl sm:text-8xl md:text-[8rem] lg:text-[12rem] font-serif font-black tracking-tighter leading-none inline-block relative"
+                                >
+                                    {char}
+                                </motion.span>
+                            ))}
+                        </motion.div>
+                    ))}
                 </div>
             </div>
+            
+            {/* Very subtle background delight */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[800px] max-h-[800px] bg-accent/[0.02] rounded-full blur-[100px] pointer-events-none z-0"></div>
         </section>
     );
 };
+
+

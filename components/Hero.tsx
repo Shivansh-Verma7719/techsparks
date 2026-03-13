@@ -4,49 +4,81 @@ import { Button } from "@heroui/react";
 import { motion } from "framer-motion";
 
 export const Hero = () => {
+    const easeEditorial = [0.25, 1, 0.5, 1] as const;
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.2,
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 40 },
+        visible: { 
+            opacity: 1, 
+            y: 0, 
+            transition: { duration: 1.2, Math: easeEditorial } 
+        }
+    };
+
     return (
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-surface-secondary via-background to-background">
-            <div className="absolute inset-0 w-full h-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none z-0"></div>
-
-            <div className="container mx-auto px-6 relative z-10 flex flex-col items-center text-center">
-
-                <motion.h1
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                    className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8"
-                >
-                    A <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">Deep Human</span> <br />
-                    Initiative in <span className="text-foreground">Tech</span>
-                </motion.h1>
-
-                <motion.p
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                    className="text-lg md:text-xl text-default-500 max-w-2xl mb-10 leading-relaxed"
-                >
-                    Where biosciences, psychology, economics, maths and computer science meet real-world problems. Ignite a deep-tech movement.
-                </motion.p>
-
+        <section className="relative min-h-[90vh] flex flex-col justify-center bg-background overflow-hidden px-6 pt-20">
+            {/* Very subtle grain or nothing at all—let's stick to pure clean background */}
+            <div className="container mx-auto relative z-10 max-w-6xl">
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-                    className="flex flex-col sm:flex-row gap-4"
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="flex flex-col items-start text-left"
                 >
-                    <Button size="lg" variant="primary" className="font-semibold px-8 py-6 text-lg shadow-lg shadow-accent/20">
-                        Explore Programs
-                    </Button>
-                    <Button size="lg" variant="outline" className="font-semibold px-8 py-6 text-lg border-2">
-                        Read Vision
-                    </Button>
+                    <motion.p 
+                        variants={itemVariants as any}
+                        className="text-accent tracking-widest uppercase text-xs font-bold mb-6 flex items-center gap-4"
+                    >
+                        <span className="w-8 h-px bg-accent"></span>
+                        Ashoka University
+                    </motion.p>
+
+                    <motion.h1
+                        variants={itemVariants as any}
+                        className="text-6xl md:text-8xl lg:text-9xl font-serif text-foreground leading-[0.95] tracking-tight mb-8"
+                    >
+                        A <span className="italic font-light text-accent">Deep Human</span><br />
+                        <span className="font-semibold">Initiative.</span>
+                    </motion.h1>
+
+                    <motion.p
+                        variants={itemVariants as any}
+                        className="text-xl md:text-2xl text-foreground/70 max-w-2xl mb-12 leading-relaxed font-sans font-light"
+                    >
+                        Where biosciences, psychology, economics, maths and computer science meet real-world problems. Ignite a deep-tech movement.
+                    </motion.p>
+
+                    <motion.div
+                        variants={itemVariants as any}
+                        className="flex flex-col sm:flex-row gap-6"
+                    >
+                        <Button 
+                            size="lg" 
+                            className="font-sans font-medium px-8 py-7 text-lg bg-foreground text-background rounded-none hover:bg-accent hover:scale-[1.02] transition-all duration-300 shadow-xl shadow-foreground/5"
+                        >
+                            Explore Programs
+                        </Button>
+                        <Button 
+                            size="lg" 
+                            variant="outline"
+                            className="font-sans font-medium px-8 py-7 text-lg border-foreground text-foreground rounded-none hover:bg-foreground hover:text-background transition-all duration-300"
+                        >
+                            Read Vision
+                        </Button>
+                    </motion.div>
                 </motion.div>
             </div>
-
-            {/* Decorative gradients */}
-            <div className="absolute top-1/4 -left-20 w-96 h-96 bg-accent/20 rounded-full blur-[128px] opacity-10 pointer-events-none"></div>
-            <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-[128px] opacity-30 pointer-events-none"></div>
         </section>
     );
 };
