@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
+import { LenisProvider } from "@/components/LenisProvider";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -26,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="light" style={{ scrollBehavior: 'smooth' }}>
+    <html lang="en" className="light">
       <body
         className={`${fraunces.variable} ${bricolage.variable} antialiased bg-background text-foreground font-sans selection:bg-foreground selection:text-background relative`}
       >
@@ -36,7 +37,9 @@ export default function RootLayout({
             backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
           }}
         />
-        {children}
+        <LenisProvider>
+            {children}
+        </LenisProvider>
       </body>
     </html>
   );

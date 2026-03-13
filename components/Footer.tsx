@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { IconBrandTwitter, IconBrandLinkedin, IconBrandInstagram } from "@tabler/icons-react";
+import { IconBrandTwitter, IconBrandLinkedin, IconBrandInstagram, IconBrandFacebook } from "@tabler/icons-react";
 
 export const Footer = () => {
     return (
@@ -16,8 +16,7 @@ export const Footer = () => {
                             Igniting innovation and entrepreneurship at Ashoka University.
                         </p>
                         <div className="flex gap-8 mt-4">
-                            <img src="/images/ashoka-logo.png" alt="Ashoka University" className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" style={{ filter: 'brightness(0) invert(1)' }} />
-                            <img src="/images/cfe-logo.png" alt="Centre for Entrepreneurship" className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" style={{ filter: 'brightness(0) invert(1)' }} />
+                            <img src="/images/ashoka-cfe-logo.png" alt="Ashoka University" className="h-24 w-auto transition-opacity" style={{ filter: 'brightness(0) invert(1)' }} />
                         </div>
                     </div>
 
@@ -33,20 +32,23 @@ export const Footer = () => {
                         <div className="flex flex-col gap-6">
                             <h3 className="font-sans text-xs font-bold tracking-widest uppercase text-accent mb-2">Connect</h3>
                             <div className="flex gap-6">
-                                <Link href="https://x.com/techsparks_au" target="_blank" className="text-background/70 hover:text-accent transition-colors p-2 -ml-2">
+                                <Link href="https://x.com/CfeAshoka" target="_blank" className="text-background/70 hover:text-accent transition-colors p-2 -ml-2">
                                     <IconBrandTwitter size={28} stroke={1.2} />
                                 </Link>
-                                <Link href="https://www.linkedin.com/company/techsparks-au" target="_blank" className="text-background/70 hover:text-accent transition-colors p-2">
+                                <Link href="https://www.linkedin.com/in/cfeashoka/" target="_blank" className="text-background/70 hover:text-accent transition-colors p-2">
                                     <IconBrandLinkedin size={28} stroke={1.2} />
                                 </Link>
-                                <Link href="https://www.instagram.com/techsparks_au" target="_blank" className="text-background/70 hover:text-accent transition-colors p-2">
+                                <Link href="https://www.instagram.com/centreforentrepreneurship_au/" target="_blank" className="text-background/70 hover:text-accent transition-colors p-2">
                                     <IconBrandInstagram size={28} stroke={1.2} />
+                                </Link>
+                                <Link href="https://www.facebook.com/CfEAshoka" target="_blank" className="text-background/70 hover:text-accent transition-colors p-2">
+                                    <IconBrandFacebook size={28} stroke={1.2} />
                                 </Link>
                             </div>
                             <div className="mt-4 flex flex-col gap-2 relative">
                                 <span className="text-sm font-sans font-light text-background/50">Say Hello</span>
-                                <a href="mailto:techsparks@ashoka.edu.in" className="font-serif text-xl border-b border-background/20 pb-1 hover:border-accent hover:text-accent transition-colors w-fit">
-                                    techsparks@ashoka.edu.in
+                                <a href="mailto:entrepreneurship@ashoka.edu.in" className="font-serif xl:text-xl text-base border-b border-background/20 pb-1 hover:border-accent hover:text-accent transition-colors w-fit">
+                                    entrepreneurship@ashoka.edu.in
                                 </a>
                             </div>
                         </div>

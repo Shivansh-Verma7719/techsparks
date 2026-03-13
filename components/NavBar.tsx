@@ -8,6 +8,7 @@ import { Button } from "@heroui/react";
 export const NavBar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState("");
     
     // Delight: Scroll Progress Indicator
     const { scrollYProgress } = useScroll();
@@ -20,15 +21,29 @@ export const NavBar = () => {
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 10);
+            
+            // Basic ScrollSpy logic
+            const sections = ['vision', 'phases', 'principles'];
+            let current = "";
+            for (const section of sections) {
+                const element = document.getElementById(section);
+                if (element && window.scrollY >= (element.offsetTop - 200)) {
+                    current = section;
+                }
+            }
+            setActiveSection(current);
         };
+        
         window.addEventListener("scroll", handleScroll);
+        // Initial call
+        handleScroll();
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     const navLinks = [
-        { name: "Vision", href: "#vision" },
-        { name: "Timeline", href: "#phases" },
-        { name: "Principles", href: "#principles" },
+        { name: "Vision", href: "#vision", id: "vision" },
+        { name: "Timeline", href: "#phases", id: "phases" },
+        { name: "Principles", href: "#principles", id: "principles" },
     ];
 
     return (
@@ -56,19 +71,22 @@ export const NavBar = () => {
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex items-center gap-10">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                href={link.href}
-                                className="relative text-sm font-medium text-foreground tracking-wide uppercase group overflow-hidden py-1"
-                            >
-                                {link.name}
-                                <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full ease-out"></span>
-                            </Link>
-                        ))}
-                        <Link href="#" passHref>
+                        {navLinks.map((link) => {
+                            const isActive = activeSection === link.id;
+                            return (
+                                <Link
+                                    key={link.name}
+                                    href={link.href}
+                                    className={`relative text-sm font-medium tracking-wide uppercase group overflow-hidden py-1 transition-colors duration-300 ${isActive ? 'text-accent' : 'text-foreground hover:text-accent'}`}
+                                >
+                                    {link.name}
+                                    <span className={`absolute left-0 bottom-0 h-0.5 transition-all duration-300 ease-out bg-accent ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                                </Link>
+                            );
+                        })}
+                        <Link href="https://forms.gle/SbcwF9nYjUXCxHX56" target="_blank" rel="noopener noreferrer" passHref>
                             <Button
-                                className="font-sans font-medium uppercase tracking-wider text-xs px-6 py-5 bg-foreground text-background rounded-none hover:bg-accent hover:scale-[1.02] transition-all duration-300"
+                                className="font-sans font-medium uppercase tracking-wider text-xs px-6 py-5 bg-accent text-accent-foreground rounded-none hover:bg-foreground hover:text-background transition-colors duration-500"
                             >
                                 Apply Now
                             </Button>
@@ -106,31 +124,34 @@ export const NavBar = () => {
                         transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1] }}
                         className="fixed inset-0 z-40 bg-background md:hidden flex flex-col items-center justify-center gap-10"
                     >
-                        {navLinks.map((link, i) => (
-                            <motion.div
-                                key={link.name}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.2 + (i * 0.1) }}
-                            >
-                                <Link
-                                    href={link.href}
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                    className="text-4xl font-serif text-foreground hover:text-accent transition-colors"
+                        {navLinks.map((link, i) => {
+                            const isActive = activeSection === link.id;
+                            return (
+                                <motion.div
+                                    key={link.name}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.2 + (i * 0.1) }}
                                 >
-                                    {link.name}
-                                </Link>
-                            </motion.div>
-                        ))}
+                                    <Link
+                                        href={link.href}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className={`text-4xl font-serif transition-colors ${isActive ? 'text-accent' : 'text-foreground hover:text-accent'}`}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                </motion.div>
+                            );
+                        })}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5 }}
                         >
-                            <Link href="#" passHref>
+                            <Link href="https://forms.gle/SbcwF9nYjUXCxHX56" target="_blank" rel="noopener noreferrer" passHref>
                                 <Button
                                     size="lg"
-                                    className="font-sans font-medium uppercase tracking-wider bg-foreground text-background rounded-none px-10 py-8 mt-6"
+                                    className="font-sans font-medium uppercase tracking-wider bg-accent text-accent-foreground rounded-none px-10 py-8 mt-6"
                                     onPress={() => setIsMobileMenuOpen(false)}
                                 >
                                     Apply Now
