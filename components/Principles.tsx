@@ -60,7 +60,7 @@ export const Principles = () => {
                             transition={{ duration: 0.8, delay: index * 0.1, ease: [0.25, 1, 0.5, 1] }}
                             className="group relative"
                         >
-                            <span className="absolute -left-6 md:-left-12 -top-16 text-[8rem] font-serif font-light text-foreground/[0.03] select-none transition-transform duration-700 group-hover:scale-110 group-hover:text-accent/5 -z-10">
+                            <span className="absolute -left-6 md:-left-12 -top-16 text-[8rem] font-serif font-light text-foreground/[0.06] select-none transition-transform duration-700 group-hover:scale-110 group-hover:text-accent/5 -z-10">
                                 0{index + 1}
                             </span>
                             <div className="pt-4 border-t-2 border-foreground/10 group-hover:border-accent transition-colors duration-500">

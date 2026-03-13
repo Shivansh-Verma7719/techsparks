@@ -9,7 +9,7 @@ export const NavBar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState("");
-    
+
     // Delight: Scroll Progress Indicator
     const { scrollYProgress } = useScroll();
     const scaleX = useSpring(scrollYProgress, {
@@ -21,9 +21,9 @@ export const NavBar = () => {
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 10);
-            
+
             // Basic ScrollSpy logic
-            const sections = ['vision', 'phases', 'principles'];
+            const sections = ['vision', 'phases', 'principles', 'mentors'];
             let current = "";
             for (const section of sections) {
                 const element = document.getElementById(section);
@@ -33,7 +33,7 @@ export const NavBar = () => {
             }
             setActiveSection(current);
         };
-        
+
         window.addEventListener("scroll", handleScroll);
         // Initial call
         handleScroll();
@@ -42,6 +42,7 @@ export const NavBar = () => {
 
     const navLinks = [
         { name: "Vision", href: "#vision", id: "vision" },
+        { name: "Mentors", href: "#mentors", id: "mentors" },
         { name: "Timeline", href: "#phases", id: "phases" },
         { name: "Principles", href: "#principles", id: "principles" },
     ];
@@ -58,11 +59,10 @@ export const NavBar = () => {
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-                    isScrolled
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
                         ? "bg-background/90 backdrop-blur-xl border-b border-foreground/10 py-5"
                         : "bg-transparent py-8 mt-1"
-                }`}
+                    }`}
             >
                 <div className="container mx-auto px-6 max-w-6xl flex items-center justify-between">
                     <Link href="/" className="font-serif font-semibold text-2xl tracking-tight text-foreground z-50 hover:opacity-80 transition-opacity">

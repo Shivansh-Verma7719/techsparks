@@ -4,6 +4,7 @@ import { Mantra } from "@/components/Mantra";
 import { Vision } from "@/components/Vision";
 import { Phases } from "@/components/Phases";
 import { Principles } from "@/components/Principles";
+import { Mentors } from "@/components/Mentors";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero />
       <Vision />
       <Mantra />
+      <Mentors />
       <Phases />
       <Principles />
       <Footer />
