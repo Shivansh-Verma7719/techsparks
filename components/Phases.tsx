@@ -27,7 +27,7 @@ const phases = [
     {
         phase: "03",
         title: "Immersion – Bangalore",
-        date: "10–12 Mar",
+        date: "10–12 May",
         description: "Immersion to Bangalore, India's deep-tech and startup capital.",
         details: ["Lab tours", "Problem clinics", "IP Reality checks"],
     },
