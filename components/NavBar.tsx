@@ -23,7 +23,7 @@ export const NavBar = () => {
             setIsScrolled(window.scrollY > 10);
 
             // Basic ScrollSpy logic
-            const sections = ['vision', 'phases', 'principles', 'mentors'];
+            const sections = ['vision', 'motivation', 'phases', 'principles', 'mentors', 'gallery'];
             let current = "";
             for (const section of sections) {
                 const element = document.getElementById(section);
@@ -42,9 +42,11 @@ export const NavBar = () => {
 
     const navLinks = [
         { name: "Vision", href: "#vision", id: "vision" },
+        { name: "Why Now", href: "#motivation", id: "motivation" },
         { name: "Mentors", href: "#mentors", id: "mentors" },
         { name: "Timeline", href: "#phases", id: "phases" },
         { name: "Principles", href: "#principles", id: "principles" },
+        { name: "Gallery", href: "#gallery", id: "gallery" },
     ];
 
     return (
@@ -64,24 +66,44 @@ export const NavBar = () => {
                         : "bg-transparent py-8 mt-1"
                     }`}
             >
-                <div className="container mx-auto px-6 max-w-6xl flex items-center justify-between">
-                    <Link href="/" className="font-serif font-semibold text-2xl tracking-tight text-foreground z-50 hover:opacity-80 transition-opacity">
-                        Tech<span className="italic text-accent">Sparks</span>
-                    </Link>
+                <div className={`container mx-auto ${isScrolled ? "max-w-6xl" : "max-w-7xl"} transition-all duration-700 flex items-center justify-between`}>
+                    <div className="flex items-center gap-4 z-50">
+                        <img
+                            src="/images/ashoka-cfe-logo.png"
+                            alt="Ashoka CfE"
+                            className="h-10 w-auto"
+                            style={{ filter: "brightness(0)" }}
+                        />
+                        <span className="w-px h-5 bg-foreground/20" />
+                        <Link href="/" className="font-serif font-semibold text-2xl tracking-tight text-foreground hover:opacity-80 transition-opacity">
+                            Tech<span className="italic text-accent">Sparks</span>
+                        </Link>
+                    </div>
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex items-center gap-10">
                         {navLinks.map((link) => {
                             const isActive = activeSection === link.id;
                             return (
-                                <Link
+                                <a
                                     key={link.name}
                                     href={link.href}
-                                    className={`relative text-sm font-medium tracking-wide uppercase group overflow-hidden py-1 transition-colors duration-300 ${isActive ? 'text-accent' : 'text-foreground hover:text-accent'}`}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        const target = document.getElementById(link.id);
+                                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                        const lenis = (window as any).__lenis;
+                                        if (lenis && target) {
+                                            lenis.scrollTo(target, { offset: -80, duration: 2 });
+                                        } else if (target) {
+                                            target.scrollIntoView({ behavior: "smooth" });
+                                        }
+                                    }}
+                                    className={`relative text-sm font-medium tracking-wide uppercase group overflow-hidden py-1 transition-colors duration-300 cursor-pointer ${isActive ? 'text-accent' : 'text-foreground hover:text-accent'}`}
                                 >
                                     {link.name}
                                     <span className={`absolute left-0 bottom-0 h-0.5 transition-all duration-300 ease-out bg-accent ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
-                                </Link>
+                                </a>
                             );
                         })}
                         <Link href="https://forms.gle/SbcwF9nYjUXCxHX56" target="_blank" rel="noopener noreferrer" passHref>
@@ -133,13 +155,24 @@ export const NavBar = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.2 + (i * 0.1) }}
                                 >
-                                    <Link
+                                    <a
                                         href={link.href}
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                        className={`text-4xl font-serif transition-colors ${isActive ? 'text-accent' : 'text-foreground hover:text-accent'}`}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            setIsMobileMenuOpen(false);
+                                            const target = document.getElementById(link.id);
+                                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                            const lenis = (window as any).__lenis;
+                                            if (lenis && target) {
+                                                lenis.scrollTo(target, { offset: -80, duration: 3 });
+                                            } else if (target) {
+                                                target.scrollIntoView({ behavior: "smooth" });
+                                            }
+                                        }}
+                                        className={`text-4xl font-serif transition-colors cursor-pointer ${isActive ? 'text-accent' : 'text-foreground hover:text-accent'}`}
                                     >
                                         {link.name}
-                                    </Link>
+                                    </a>
                                 </motion.div>
                             );
                         })}

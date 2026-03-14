@@ -19,17 +19,17 @@ const phases = [
     },
     {
         phase: "02",
-        title: "Immersion – Bangalore",
-        date: "10–12 Apr",
-        description: "Immersion to Bangalore, India's deep-tech and startup capital.",
-        details: ["Lab tours", "Problem clinics", "IP Reality checks"],
-    },
-    {
-        phase: "03",
         title: "TechSparks Champion RoundTable",
         date: "20 Apr",
         description: "Curated, invitation-only roundtable with external champions.",
         details: ["5–7 min Deep Problem Briefs", "Ethics Feedback", "Champion Selection"],
+    },
+    {
+        phase: "03",
+        title: "Immersion – Bangalore",
+        date: "10–12 Mar",
+        description: "Immersion to Bangalore, India's deep-tech and startup capital.",
+        details: ["Lab tours", "Problem clinics", "IP Reality checks"],
     },
     {
         phase: "04",
@@ -54,7 +54,7 @@ export const Phases = () => {
                     >
                         Timeline.
                     </motion.h2>
-                    <motion.p 
+                    <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
@@ -69,14 +69,14 @@ export const Phases = () => {
                     {phases.map((item, index) => (
                         <div key={index} className="group relative py-12 flex flex-col md:flex-row gap-8 items-start hover:bg-foreground/[0.02] transition-colors duration-500 -mx-6 px-6">
                             {/* Animated Drawing Line */}
-                            <motion.div 
+                            <motion.div
                                 initial={{ scaleX: 0 }}
                                 whileInView={{ scaleX: 1 }}
                                 viewport={{ once: true, margin: "-100px" }}
                                 transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
                                 className="absolute top-0 left-6 right-6 h-[1px] bg-foreground/10 origin-left"
                             />
-                            
+
                             <motion.div
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -88,7 +88,7 @@ export const Phases = () => {
                                 <span className="font-sans font-bold tracking-widest uppercase text-xs text-foreground/50">{item.date}</span>
                             </motion.div>
 
-                            <motion.div 
+                            <motion.div
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-100px" }}
@@ -116,10 +116,10 @@ export const Phases = () => {
                             </motion.div>
                         </div>
                     ))}
-                    
+
                     {/* Final Bottom Line */}
                     <div className="relative h-[1px] -mx-6 px-6">
-                        <motion.div 
+                        <motion.div
                             initial={{ scaleX: 0 }}
                             whileInView={{ scaleX: 1 }}
                             viewport={{ once: true, margin: "-100px" }}

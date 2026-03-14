@@ -5,6 +5,8 @@ import { Vision } from "@/components/Vision";
 import { Phases } from "@/components/Phases";
 import { Principles } from "@/components/Principles";
 import { Mentors } from "@/components/Mentors";
+import { Motivation } from "@/components/Motivation";
+import { Gallery } from "@/components/Gallery";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -13,10 +15,12 @@ export default function Home() {
       <NavBar />
       <Hero />
       <Vision />
-      <Mantra />
+      <Motivation />
       <Mentors />
+      <Mantra />
       <Phases />
       <Principles />
+      <Gallery />
       <Footer />
     </main>
   );
