@@ -26,7 +26,8 @@ export const Footer = () => {
                             <Link href="/" className="font-sans font-light text-background/70 hover:text-accent transition-colors text-lg w-fit">Home</Link>
                             <Link href="#vision" className="font-sans font-light text-background/70 hover:text-accent transition-colors text-lg w-fit">Vision</Link>
                             <Link href="#phases" className="font-sans font-light text-background/70 hover:text-accent transition-colors text-lg w-fit">Timeline</Link>
-                            <Link href="#principles" className="font-sans font-light text-background/70 hover:text-accent transition-colors text-lg w-fit">Principles</Link>
+                            <Link href="#mentors" className="font-sans font-light text-background/70 hover:text-accent transition-colors text-lg w-fit">Mentors</Link>
+                            <Link href="#gallery" className="font-sans font-light text-background/70 hover:text-accent transition-colors text-lg w-fit">Gallery</Link>
                         </div>
 
                         <div className="flex flex-col gap-6">

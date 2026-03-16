@@ -29,6 +29,30 @@ const mentors = [
         image: "/images/vidushi-malhotra.png",
         index: "03",
     },
+    {
+        name: "Shilpy Kochhar",
+        role: "Director",
+        bio: "Research & Development Office, Ashoka University, Former Head-Business Development and Communications, BIRAC",
+        linkedin: "https://www.linkedin.com/in/shilpy-kochhar-17a0141b",
+        image: "/images/shilpy-kochhar.png",
+        index: "04",
+    },
+    {
+        name: "Aishwarya Malhi",
+        role: "Co-Founder",
+        bio: "Rebalance",
+        linkedin: "https://www.linkedin.com/in/aishwaryamalhi/",
+        image: "/images/aishwarya-malhi.png",
+        index: "05",
+    },
+    {
+        name: "Apoorv Bamba",
+        role: "Co-Founder",
+        bio: "Belong Education",
+        linkedin: "https://www.linkedin.com/in/apoorv-bamba-19b53214/",
+        image: "/images/apoorv-bamba.png",
+        index: "06",
+    }
 ];
 
 const containerVariants = {

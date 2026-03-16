@@ -19,7 +19,6 @@ export default function Home() {
       <Mentors />
       <Mantra />
       <Phases />
-      <Principles />
       <Gallery />
       <Footer />
     </main>

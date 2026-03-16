@@ -25,24 +25,6 @@ const stats = [
     { value: 70, suffix: "%", label: "of breakthrough innovations emerge from multiple disciplines" },
 ];
 
-const reasons = [
-    {
-        index: "I",
-        heading: "A Convergence Moment",
-        body: "AI, biotech, and materials science are colliding at an unprecedented rate. The problems of the coming decade — pandemics, climate, cognition — cannot be solved by any single field. The moment is demanding generalists who think deep.",
-    },
-    {
-        index: "II",
-        heading: "Infrastructure Has Arrived",
-        body: "The compute, the tools, the open-source models and protein databases — the scaffolding that once took a decade to build is now available to any student with a laptop. The gap between idea and experiment has never been smaller.",
-    },
-    {
-        index: "III",
-        heading: "Founders Are Finding Edges in Depth",
-        body: "The next category-defining companies will not be built at the surface. They will be built by researchers who know the literature, who see patterns across domains, and who treat a thesis like a hypothesis and a startup like an experiment.",
-    },
-];
-
 const easeOut = [0.25, 1, 0.5, 1] as const;
 
 /* ─── Section ───────────────────────────────────────────────────────── */
@@ -113,41 +95,7 @@ export const Motivation = () => {
                         </motion.div>
                     ))}
                 </div>
-
-                {/* ── Reasons ────────────────────────────────────────────── */}
-                <div className="flex flex-col gap-0 border-t-2 border-background/10">
-                    {reasons.map((r, i) => (
-                        <motion.div
-                            key={r.index}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-80px" }}
-                            transition={{ duration: 1, delay: 0.05, ease: easeOut }}
-                            className="group grid grid-cols-[3rem_1fr] md:grid-cols-[6rem_1fr_1.5fr] gap-6 md:gap-12 py-10 md:py-12 border-b-2 border-background/10 hover:bg-background/[0.03] transition-colors duration-500 px-2 md:px-4 cursor-default"
-                        >
-                            {/* Roman numeral */}
-                            <span className="font-serif italic text-2xl md:text-3xl text-accent/60 group-hover:text-accent transition-colors duration-500 pt-1 font-light">
-                                {r.index}.
-                            </span>
-
-                            {/* Heading */}
-                            <h3 className="font-sans font-black text-2xl md:text-3xl tracking-tight text-background leading-tight self-start">
-                                {r.heading}
-                            </h3>
-
-                            {/* Body – hidden on mobile */}
-                            <p className="hidden md:block font-sans font-light text-background/55 text-lg leading-relaxed self-start max-w-xl">
-                                {r.body}
-                            </p>
-
-                            {/* Body – visible on mobile only */}
-                            <p className="col-span-2 md:hidden font-sans font-light text-background/55 text-base leading-relaxed">
-                                {r.body}
-                            </p>
-                        </motion.div>
-                    ))}
-                </div>
-
+                
                 {/* ── Pull quote ─────────────────────────────────────────── */}
                 <motion.blockquote
                     initial={{ opacity: 0, y: 30 }}

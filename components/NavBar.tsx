@@ -70,7 +70,7 @@ export const NavBar = () => {
                         <img
                             src="/images/ashoka-cfe-logo.png"
                             alt="Ashoka CfE"
-                            className="h-10 w-auto"
+                            className="h-12 w-auto"
                             style={{ filter: "brightness(0)" }}
                         />
                         <span className="w-px h-5 bg-foreground/20" />
