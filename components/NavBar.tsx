@@ -23,7 +23,7 @@ export const NavBar = () => {
             setIsScrolled(window.scrollY > 10);
 
             // Basic ScrollSpy logic
-            const sections = ['vision', 'motivation', 'phases', 'mentors', 'gallery'];
+            const sections = ['vision', 'motivation', 'mentors', 'cohort-one', 'cohort-two'];
             let current = "";
             for (const section of sections) {
                 const element = document.getElementById(section);
@@ -44,8 +44,7 @@ export const NavBar = () => {
         { name: "Vision", href: "#vision", id: "vision" },
         { name: "Why Now", href: "#motivation", id: "motivation" },
         { name: "Mentors", href: "#mentors", id: "mentors" },
-        { name: "Timeline", href: "#phases", id: "phases" },
-        { name: "Gallery", href: "#gallery", id: "gallery" },
+        { name: "Cohort 1", href: "#cohort-one", id: "cohort-one" },
     ];
 
     return (
@@ -109,7 +108,7 @@ export const NavBar = () => {
                             <Button
                                 className="font-sans font-medium uppercase tracking-wider text-xs px-6 py-5 bg-accent text-accent-foreground rounded-none hover:bg-foreground hover:text-background transition-colors duration-500"
                             >
-                                Apply Now
+                                Cohort 2
                             </Button>
                         </Link>
                     </div>
@@ -186,7 +185,7 @@ export const NavBar = () => {
                                     className="font-sans font-medium uppercase tracking-wider bg-accent text-accent-foreground rounded-none px-10 py-8 mt-6"
                                     onPress={() => setIsMobileMenuOpen(false)}
                                 >
-                                    Apply Now
+                                    Apply for Cohort 2
                                 </Button>
                             </Link>
                         </motion.div>
@@ -196,4 +195,3 @@ export const NavBar = () => {
         </>
     );
 };
-

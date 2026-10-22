@@ -59,7 +59,7 @@ export const Hero = () => {
                     <div className="font-sans font-bold uppercase tracking-widest text-xs text-foreground flex gap-6 lg:py-8 mt-2 lg:mt-0">
                         <span>Ashoka University</span>
                         <span className="text-foreground/30">•</span>
-                        <span>Cohort 2026</span>
+                            <span>Cohort 2 applications open</span>
                     </div>
 
                     <a 
@@ -70,7 +70,7 @@ export const Hero = () => {
                     >
                         <div className="absolute inset-0 bg-accent transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-[0.25,1,0.5,1] z-0"></div>
                         <span className="relative z-10 text-background group-hover:text-foreground font-sans font-black uppercase tracking-[0.2em] text-sm md:text-lg transition-colors duration-500">
-                            Register Now
+                            Apply for Cohort 2
                         </span>
                         
                         {/* Dramatic hover reveal arrow */}

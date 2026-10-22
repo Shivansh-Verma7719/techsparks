@@ -1,13 +1,12 @@
-import { NavBar } from "@/components/NavBar";
+import { CohortTwoCallout } from "@/components/CohortTwoCallout";
+import { Footer } from "@/components/Footer";
+import { CohortOne } from "@/components/Gallery";
 import { Hero } from "@/components/Hero";
 import { Mantra } from "@/components/Mantra";
-import { Vision } from "@/components/Vision";
-import { Phases } from "@/components/Phases";
-import { Principles } from "@/components/Principles";
 import { Mentors } from "@/components/Mentors";
 import { Motivation } from "@/components/Motivation";
-import { Gallery } from "@/components/Gallery";
-import { Footer } from "@/components/Footer";
+import { NavBar } from "@/components/NavBar";
+import { Vision } from "@/components/Vision";
 
 export default function Home() {
   return (
@@ -18,8 +17,9 @@ export default function Home() {
       <Motivation />
       <Mentors />
       <Mantra />
-      <Phases />
-      <Gallery />
+      {/* Timeline is intentionally hidden until the next programme update. */}
+      <CohortOne />
+      <CohortTwoCallout />
       <Footer />
     </main>
   );

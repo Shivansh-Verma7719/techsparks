@@ -25,9 +25,9 @@ export const Footer = () => {
                             <h3 className="font-sans text-xs font-bold tracking-widest uppercase text-accent mb-2">Navigation</h3>
                             <Link href="/" className="font-sans font-light text-background/70 hover:text-accent transition-colors text-lg w-fit">Home</Link>
                             <Link href="#vision" className="font-sans font-light text-background/70 hover:text-accent transition-colors text-lg w-fit">Vision</Link>
-                            <Link href="#phases" className="font-sans font-light text-background/70 hover:text-accent transition-colors text-lg w-fit">Timeline</Link>
                             <Link href="#mentors" className="font-sans font-light text-background/70 hover:text-accent transition-colors text-lg w-fit">Mentors</Link>
-                            <Link href="#gallery" className="font-sans font-light text-background/70 hover:text-accent transition-colors text-lg w-fit">Gallery</Link>
+                            <Link href="#cohort-one" className="font-sans font-light text-background/70 hover:text-accent transition-colors text-lg w-fit">Cohort 1</Link>
+                            <Link href="#cohort-two" className="font-sans font-light text-background/70 hover:text-accent transition-colors text-lg w-fit">Apply for Cohort 2</Link>
                         </div>
 
                         <div className="flex flex-col gap-6">
@@ -68,4 +68,3 @@ export const Footer = () => {
         </footer>
     );
 };
-
