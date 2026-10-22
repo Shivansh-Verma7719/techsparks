@@ -163,7 +163,13 @@ export const CohortOne = () => {
             transition={{ duration: 1, ease: easeOut }}
             className="flex flex-col lg:flex-row justify-between items-start gap-10 mb-20 lg:mb-28 pb-10 border-b-2 border-foreground/10"
           >
-            <div className="ml-auto max-w-4xl lg:text-right">
+            <div className="flex items-center gap-6 shrink-0 pt-2">
+              <span className="w-16 h-[2px] bg-accent" />
+              <span className="font-sans font-black uppercase tracking-[0.25em] text-[10px] text-foreground/40">
+                Cohort 1
+              </span>
+            </div>
+            <div className="max-w-4xl lg:text-right">
               <h2 className="text-6xl md:text-8xl lg:text-9xl font-serif font-light italic tracking-tighter text-foreground leading-[0.88]">
                 The first spark.
               </h2>
@@ -198,9 +204,6 @@ export const CohortOne = () => {
                 <source src="/videos/hero.mp4" type="video/mp4" />
                 Your browser does not support embedded video.
               </video>
-              <span className="pointer-events-none absolute left-5 top-5 bg-background px-4 py-3 font-sans text-[10px] font-black uppercase tracking-[0.22em] text-foreground md:left-8 md:top-8">
-                Cohort 1 film
-              </span>
             </div>
             <figcaption className="mt-5 flex items-center justify-between gap-6 border-b border-foreground/10 pb-5 font-sans text-xs uppercase tracking-[0.18em] text-foreground/40">
               <span>Inside the programme</span>
